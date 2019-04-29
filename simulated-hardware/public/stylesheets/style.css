@@ -1,0 +1,89 @@
+body {
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#bounds {
+  background-color: #212529;
+  margin: auto;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  /* background-color: red; */
+  height: 620px;
+  width: 300px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#bounds .screen {
+  border-color: black;
+  background-color: #025487;
+  /* margin-bottom: 10px; */
+  border-width: 1px;
+  border-style: solid;
+  width: 270px;
+  height: 67px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+#bounds .screen-spacer {
+  height: 10px;
+}
+
+#bounds .num-button {
+  /* margin: 5px; */
+}
+
+#bounds .num-button p {
+  background-color: #ff5005;
+  text-align: center;
+  /* background-color: white; */
+  /* vertical-align: middle; */
+  font-size: 30pt;
+  margin-top: 8px;
+  padding-top: 5px;
+  height: 68px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#bounds .num-button p:hover {
+  background-color: #db4200;
+}
+
+#bounds .del-button p {
+  padding-top: 15px;
+  background-color: #bd0016;
+  font-size: 20pt;
+}
+
+#bounds .del-button p:hover {
+  background-color: #a30010;
+}
+
+#bounds .del-button p {
+  background-color: #bd0016;
+}
+
+#bounds .enter-button p:hover {
+  background-color: #2bb501;
+}
+
+#bounds .enter-button p {
+  background-color: #2fd401;
+  padding-top: 15px;
+  font-size: 20pt;
+}
+
+#bounds .screen {
+  text-align: center;
+  font-size: 30pt;
+  padding-top: 10px;
+}

@@ -1,5 +1,4 @@
 #!/bin/bash
 pm2 start sensor-controller/controller.js -n controller
-sleep 1
-pm2 start simulated-hardware/app.js -n hardware
-pm2 start home-web-app/app.js -n web
+pm2 start simulated-hardware/bin/www -n hardware
+pm2 start home-web-app/bin/www -n web

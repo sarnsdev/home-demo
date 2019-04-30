@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<% include partials/header.ejs %>
+<h1>H.O.M.E. Managment Portal</h1>
+<% if (typeof process.env.CODE === 'undefined') { %>
+  <form class="" action="setCode" method="post">
+    Set Passcode:
+    <input type="number" name="code" value="">
+    <input type="submit" name="" value="Set">
+    <br>
+    <br>
+    <br>
+  </form>
+<% } else { %>
+  <form class="" action="changeCode" method="post">
+    Enter Current Code:
+    <input type="number" name="code" value=""> <br>
+    Set Passcode:
+    <input type="number" name="code1" value=""> <br>
+    Confirm Passcode:
+    <input type="number" name="code2" value=""> <br>
+    <input type="submit" name="" value="Set">
+    <br>
+    <br>
+    <br>
+  </form>
+
+  <form class="" action="arm" method="post">
+    <input type="number" name="code" value="">
+    <input type="submit" name="Arm" value="Arm">
+  </form>
+
+  <form class="" action="disarm" method="post">
+    <input type="number" name="code" value="">
+    <input type="submit" name="Disarm" value="Disarm">
+  </form>
+<% } %>
+
+<% include partials/footer.ejs %>

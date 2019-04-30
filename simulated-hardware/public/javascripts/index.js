@@ -4,11 +4,27 @@ var numberStrings = ["*", "*", "*", "*"];
 var currentNumberPointer = 0;
 var state = "alarm"
 var t;
-sendData("Hello, server", "8080");
+// sendData("Hello, server");
+// sendData("Hello, server2");
 render();
+
+// Png back to controller
+// setInterval(() => {
+//   // socket.addEventListener('open', function (event) {
+//   socket.send("ping");
+// }, 1000);
+
 // Event Listeners
 socket.addEventListener('message', function (event) {
   console.log('Message from server ', event.data);
+  if (event.data === "ALERT") {
+    state = "alarm"
+    setOffAlarm()
+  }
+  if (event.data === "SLEEP") {
+    state = "sleep"
+    turnOffAlarm();
+  }
 });
 
 
@@ -21,6 +37,7 @@ function render() {
 }
 
 function pressNum(num) {
+  console.log(num);
   if (currentNumberPointer < 4) {
     numberStrings[currentNumberPointer] = num;
     currentNumberPointer++;
@@ -35,12 +52,18 @@ function pressBack() {
 }
 
 function pressEnter() {
-  turnOffAlarm();
+  socket.send("code " + numberStrings[0] + numberStrings[1] + numberStrings[2] + numberStrings[3])
+  numberStrings = ["*", "*", "*", "*"];
+  currentNumberPointer = 0;
+  render()
 }
 
 function turnOffAlarm() {
   clearInterval(t);
   document.body.style.backgroundColor = "white";
+  // numberStrings = ["*", "*", "*", "*"];
+  // var currentNumberPointer = 0;
+  render()
 }
 
 function setOffAlarm() {
@@ -53,10 +76,18 @@ function setOffAlarm() {
         document.body.style.backgroundColor = "red"
       }
     }
-  },500);
+  }, 500);
 }
 
-function sendData(message, port) {
+function tripSensor() {
+  socket.send("sensorTrip");
+}
+
+function pressArm() {
+  socket.send("setState armed")
+}
+
+function sendData(message) {
   socket.addEventListener('open', function (event) {
     socket.send(message);
   });

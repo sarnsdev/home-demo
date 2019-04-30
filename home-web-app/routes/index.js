@@ -3,7 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  console.log(process.env.CODE);
+  // if (typeof process.env.CODE === 'undefined') {
+  //
+  // }
+  res.render('index', { passcode: process.env.CODE });
 });
 
 module.exports = router;
